@@ -880,9 +880,7 @@ public final class MemcachedConnection extends SpyObject {
           Operation op = qa.removeCurrentReadOp();
           assert op == currentOp : "Expected to pop " + currentOp + " got " + op;
           currentOp = qa.getCurrentReadOp();
-        }
-        /* ENABLE_REPLICATION if */
-        else if (currentOp.getState() == OperationState.MOVING) {
+        } /* ENABLE_REPLICATION if */ else if (currentOp.getState() == OperationState.MOVING) {
           break;
         }
         /* ENABLE_REPLICATION end */
